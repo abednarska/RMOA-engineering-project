@@ -25,6 +25,8 @@ stream$Class <- as.factor(stream$Class)
 size <- nrow(stream)
 datastream <- datastream_dataframe(data=stream)
 
+# setting chunk size
+
 chunk <<- 100
 
 turns <- ceiling(size/chunk)
@@ -37,6 +39,8 @@ result_obg <- vector('numeric')
 
 sample <- datastream$get_points(chunk)
 sample <- datastream_dataframe(data=sample)
+
+#learning
 
 ## Random Hoeffending Tree ##
 
@@ -85,6 +89,8 @@ model_obg <<- trainMOA(model = obg,
 list <- 1:turns
 progress.bar <- create_progress_bar("text")
 progress.bar$init(turns)
+
+#testing and updating models
 
 while ((count(datastream)) >= chunk ){
   sample <- datastream$get_points(chunk)

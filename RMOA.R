@@ -7,7 +7,6 @@ library(MASS)
 library(plyr)
 library(graphics)
 library(corrplot)
-library(ggplot2)
 
 reset <- function(x){
   x$state <- 1L
